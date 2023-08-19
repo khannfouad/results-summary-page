@@ -1,0 +1,253 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  /*
+    2. Remove default margin
+  */
+  * {
+    margin: 0;
+  }
+  /*
+    Typographic tweaks!
+    3. Add accessible line-height
+    4. Improve text rendering
+  */
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  /*
+    5. Improve media defaults
+  */
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  /*
+    6. Remove built-in form typography styles
+  */
+  input, button, textarea, select {
+    font: inherit;
+  }
+  /*
+    7. Avoid text overflows
+  */
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  /*
+    8. Create a root stacking context
+  */
+  #root, #__next {
+    isolation: isolate;
+  }
+
+
+  @font-face {
+    font-family: "Hanken-Font";
+    font-display: swap;
+    font-weight: 100 900;
+    src: url(./assets/fonts/HankenGrotesk-VariableFont_wght.ttf);
+  }
+
+:root {
+   --font-family-default: "Hanken-Font";
+
+   --font-weight-normal : 500;
+   --font-weight-bold : 700;
+   --font-weight-bolder : 900;
+
+
+   --font-size-100: 1.125rem;
+   --font-size-200: 1.25rem;
+   --font-size-300: 1.5rem;
+   --font-size-400: 1.75rem;
+   --font-size-500: 2rem;
+   --font-size-1000: 5rem;
+
+
+   --primary-red :0, 100%, 67%;
+   --primary-yellow :39, 100%, 56%;
+   --primary-green :166, 100%, 37%;
+   --primary-blue :234, 85%, 45%;
+
+   --neutral-white:hsl(0, 0%, 100%);
+   --neutral-blue:hsl(221, 100%, 96%);
+   --neutral-lavender: hsl(241, 100%, 89%);
+   --neutral-grey-blue:hsl(224, 30%, 27%);
+   --neutral-grey-blue-shadow:hsl(224, 30%, 27%, 0.2);
+
+   --slate-blue-background: hsl(252, 100%, 67%);
+   --royal-blue-background: hsl(241, 81%, 54%);
+
+   --violet-blue-circle: hsla(256, 72%, 46%, 1);
+   --persian-blue-circle: hsla(241, 72%, 46%, 0);
+
+   
+
+}
+
+
+body{
+    font-family: var(--font-family-default);
+    font-size: var(--font-size-100);
+    color: var(--neutral-grey-blue);
+}
+
+
+
+.result-summary-title{
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-300);
+}
+
+.result-container .result-summary-title,
+.result-container-remarks{
+    color: var(--neutral-lavender);
+}
+
+.flex-material {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: var(--font-weight-bolder);
+}
+
+
+.summary-button {
+    background-color: var(--neutral-grey-blue);
+    color: var(--neutral-white);
+    padding: 0.8rem 2rem;
+    cursor: pointer;
+    border: 0;
+    border-radius: 100px;
+}
+
+.summary-button:hover,
+.summary-button:focus {
+    background-image:linear-gradient(var(--slate-blue-background), var(--royal-blue-background))
+}
+
+.result-summary {
+    max-width: 740px;
+    overflow: hidden;
+    --border-radius : 2em;
+    --padding: 2.2em;
+}
+
+
+
+.result-container{
+    background-image: linear-gradient(var(--slate-blue-background),
+    var(--royal-blue-background));
+    text-align: center;
+    color: var(--neutral-white);
+    display: grid;
+    align-content: start;
+    grid-gap: 1.5em;
+    border-radius:0 0 var(--border-radius) var(--border-radius);
+    padding: var(--padding) calc(var(--padding)*1.5);
+}
+
+.remark{
+    font-size: var(--font-size-300);
+    font-weight: var(--font-weight-bold);
+    padding-bottom: 0.6rem;
+    color: var(--neutral-white);
+}
+
+.result-container .marks-span {
+    font-size: var(--font-size-1000);
+    font-weight: var(--font-weight-bolder);
+    display: block;
+    line-height: 1;
+}
+
+
+.summary-container{
+    padding: var(--padding);
+}
+
+
+.score {
+    width: 12rem;
+    background: linear-gradient(var(--persian-blue-circle),
+    var(--violet-blue-circle));
+    margin-inline: auto;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    display: grid;
+    place-content: center;
+}
+
+.summary-criteria-container {
+    display: grid;
+    grid-gap: 1em;
+}
+
+.summary-criteria {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 0.5em;
+    
+
+}
+
+
+.criteria-1 {
+    background-color: hsl(var(--primary-red),0.1);
+    color: hsl(var(--primary-red));
+    stroke: hsl(var(--primary-red));
+    
+}
+
+.criteria-2{
+    background-color: hsl(var(--primary-yellow), 0.1);
+    color: hsl(var(--primary-yellow));
+    stroke: hsl(var(--primary-yellow));;
+}
+.criteria-3 {
+    background-color: hsl(var(--primary-green),0.1);
+    color: hsl(var(--primary-green));
+    stroke: hsl(var(--primary-green));
+}
+.criteria-4 {
+    background-color: hsl(var(--primary-blue),0.1);
+    color: hsl(var(--primary-blue));
+    stroke: hsl(var(--primary-blue));
+}
+
+.summary-criteria-score{
+    color: var(--neutral-grey-blue);
+}
+
+.summary-criteria-score span {
+    font-weight: var(--font-weight-bolder);
+}
+
+
+
+@media (min-width:600px) {
+    body{
+        display: grid;
+        min-height: 100vh;
+        place-items: center;
+    }
+
+    .result-summary{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        box-shadow: 0.4rem 1rem 2.4rem var(--neutral-grey-blue-shadow);
+        border-radius: var(--border-radius);
+        margin-inline: 1em;
+    }
+
+    .result-container {
+        border-radius: var(--border-radius);
+    }
+}
